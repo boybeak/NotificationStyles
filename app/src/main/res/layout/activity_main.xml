@@ -19,4 +19,32 @@
         android:onClick="showBigText"
         android:text="BigTextStyle"
         />
+    <Button
+        android:id="@+id/bigPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showBigPicture"
+        android:text="BigPictureStyle"
+        />
+    <Button
+        android:id="@+id/inbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showInboxStyle"
+        android:text="InboxStyle"
+        />
+    <Button
+        android:id="@+id/messaging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showMessagingStyle"
+        android:text="MessagingStyle"
+        />
+    <Button
+        android:id="@+id/media"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showMediaStyle"
+        android:text="MediaStyle"
+        />
 </LinearLayout>
