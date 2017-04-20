@@ -102,6 +102,18 @@ public class MainActivity extends AppCompatActivity {
         showNotificationCompat(builder);
     }
 
+    public void customStyle (View view) {
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("customStyle ContentText")
+                .contentTitle("customStyle ContentTitle")
+                .ticker("customStyle Ticker")
+                .when(System.currentTimeMillis(), true)
+                .asStyle(new AsyncBigPicture())
+                .remoteBigPicture("http://files.17173.com/forum/fz_tele-01/images/2013/09/21/184655g3ggu3u7rgxx7g35.jpg")
+                .showWhenPictureReady(5);
+    }
+
     private void showNotificationCompat (NotificationCompat.Builder builder) {
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(1, builder.build());

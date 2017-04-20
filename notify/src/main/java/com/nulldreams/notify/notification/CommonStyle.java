@@ -10,7 +10,7 @@ public abstract class CommonStyle {
 
     private NotificationCenter mCenter;
 
-    public CommonStyle(NotificationCenter center) {
+    public void setCenter (NotificationCenter center) {
         mCenter = center;
     }
 

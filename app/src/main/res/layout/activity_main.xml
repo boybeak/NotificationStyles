@@ -48,6 +48,13 @@
         android:text="MediaStyle"
         />
     <Button
+        android:id="@+id/custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="customStyle"
+        android:text="CustomStyle"
+        />
+    <Button
         android:id="@+id/toast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

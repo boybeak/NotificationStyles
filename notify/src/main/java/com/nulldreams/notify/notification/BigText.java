@@ -1,5 +1,6 @@
 package com.nulldreams.notify.notification;
 
+import android.support.annotation.StringRes;
 import android.support.v4.app.NotificationCompat;
 
 /**
@@ -10,9 +11,8 @@ public class BigText extends CommonStyle {
 
     private NotificationCompat.BigTextStyle style = null;
 
-    BigText(NotificationCenter center) {
-        super(center);
-        style = new NotificationCompat.BigTextStyle(center.getBuilder());
+    public BigText() {
+        style = new NotificationCompat.BigTextStyle();
     }
 
     @Override
@@ -33,5 +33,17 @@ public class BigText extends CommonStyle {
     public BigText summaryText (CharSequence summaryText) {
         style.setSummaryText(summaryText);
         return this;
+    }
+
+    public BigText bigText (@StringRes int text) {
+        return bigText(getCenter().getContext().getText(text));
+    }
+
+    public BigText bigContentTitle (@StringRes int title) {
+        return bigContentTitle(getCenter().getContext().getText(title));
+    }
+
+    public BigText summaryText (@StringRes int summaryText) {
+        return summaryText(getCenter().getContext().getText(summaryText));
     }
 }
