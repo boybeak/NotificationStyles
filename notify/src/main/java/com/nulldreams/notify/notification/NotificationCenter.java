@@ -85,6 +85,10 @@ public class NotificationCenter {
         return new BigText(this);
     }
 
+    public <T extends CommonStyle> T asStyle (T t) {
+        return t;
+    }
+
     public void show (int id) {
         mNotifyManCompat.notify(id, mBuilder.build());
     }
