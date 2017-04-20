@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 
+import com.nulldreams.notify.notification.NotificationCenter;
+import com.nulldreams.notify.toast.ToastCenter;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,79 +21,70 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showBigText (View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        android.support.v4.app.NotificationCompat.BigTextStyle bigTextStyle = new android.support.v4.app.NotificationCompat.BigTextStyle(builder);
 
-        bigTextStyle.bigText(BigTextData.BIG_TEXT);
-        bigTextStyle.setBigContentTitle(BigTextData.BIG_TEXT_TITLE);
-        bigTextStyle.setSummaryText(BigTextData.BIG_TEXT_SUMMARY);
-        builder.setStyle(bigTextStyle);
-
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("BigText ContentTitle");
-        builder.setContentText("BigText ContentText");
-        builder.setTicker("BigText Ticker");
-
-        showNotificationCompat(builder);
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("Messaging ContentText")
+                .contentTitle("Messaging ContentTitle")
+                .ticker("Messaging Ticker")
+                .when(System.currentTimeMillis(), true)
+                .asBigTextStyle()
+                .bigContentTitle(BigTextData.BIG_TEXT_TITLE)
+                .summaryText(BigTextData.BIG_TEXT_SUMMARY)
+                .bigText(BigTextData.BIG_TEXT)
+                .show(4);
     }
 
     public void showBigPicture (View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        android.support.v4.app.NotificationCompat.BigPictureStyle bigPictureStyle = new android.support.v4.app.NotificationCompat.BigPictureStyle(builder);
 
         Bitmap iconBmp = BitmapFactory.decodeResource(getResources(), R.drawable.john);
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 4;
         Bitmap picture = BitmapFactory.decodeResource(getResources(), R.drawable.john_lennon, options);
 
-        bigPictureStyle.setSummaryText(BigTextData.BIG_TEXT_SUMMARY);
-        bigPictureStyle.bigLargeIcon(iconBmp);
-        bigPictureStyle.bigPicture(picture);
-        bigPictureStyle.setBigContentTitle("John Lennon");
-        builder.setStyle(bigPictureStyle);
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("Messaging ContentText")
+                .contentTitle("Messaging ContentTitle")
+                .ticker("Messaging Ticker")
+                .when(System.currentTimeMillis(), true)
+                .asBigPictureStyle()
+                .bigContentTitle("InboxStyle bigContentTitle")
+                .summaryText("InboxStyle summaryText")
+                .bigLargeIcon(iconBmp)
+                .bigPicture(picture)
+                .show(4);
 
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("BigPicture ContentTitle");
-        builder.setContentText("BigPicture ContentText");
-        builder.setTicker("BigPicture Ticker");
-
-        showNotificationCompat(builder);
     }
 
     public void showInboxStyle (View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        android.support.v4.app.NotificationCompat.InboxStyle inboxStyle = new android.support.v4.app.NotificationCompat.InboxStyle(builder);
-
-        inboxStyle.setBigContentTitle("InboxStyle bigContentTitle");
-        inboxStyle.setSummaryText("InboxStyle summaryText");
-        inboxStyle.addLine("John lennon");
-        inboxStyle.addLine("Imagine");
-        inboxStyle.addLine("Imagine there's no heaven.");
-        builder.setStyle(inboxStyle);
-
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("Inbox ContentTitle");
-        builder.setContentText("Inbox ContentText");
-        builder.setTicker("Inbox Ticker");
-
-        showNotificationCompat(builder);
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("Messaging ContentText")
+                .contentTitle("Messaging ContentTitle")
+                .ticker("Messaging Ticker")
+                .when(System.currentTimeMillis(), true)
+                .asInboxStyle()
+                .bigContentTitle("InboxStyle bigContentTitle")
+                .summaryText("InboxStyle summaryText")
+                .addLine("John lennon")
+                .addLine("Imagine")
+                .addLine("Imagine there's no heaven.")
+                .show(3);
     }
 
     public void showMessagingStyle (View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        android.support.v4.app.NotificationCompat.MessagingStyle messagingStyle = new android.support.v4.app.NotificationCompat.MessagingStyle("John Lennon");
-
-        messagingStyle.addMessage("text 1", System.currentTimeMillis(), "sender 1");
-        messagingStyle.addMessage("text 2", System.currentTimeMillis(), "sender 2");
-        messagingStyle.setConversationTitle("conversionTitle");
-        builder.setStyle(messagingStyle);
-
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle("Messaging ContentTitle");
-        builder.setContentText("Messaging ContentText");
-        builder.setTicker("Messaging Ticker");
-
-        showNotificationCompat(builder);
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("Messaging ContentText")
+                .contentTitle("Messaging ContentTitle")
+                .ticker("Messaging Ticker")
+                .when(System.currentTimeMillis(), true)
+                .asMessagingStyle("John Lennon")
+                .addMessage("text 1", System.currentTimeMillis(), "sender 1")
+                .addMessage("text 2", System.currentTimeMillis(), "sender 2")
+                .conversationTitle("conversionTitle")
+                .show(2);
     }
 
     public void showMediaStyle (View view) {
@@ -111,5 +105,9 @@ public class MainActivity extends AppCompatActivity {
     private void showNotificationCompat (NotificationCompat.Builder builder) {
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
         notificationManagerCompat.notify(1, builder.build());
+    }
+
+    public void toast (View view) {
+        ToastCenter.with(this).text(R.string.toast, "Alice").showShort();
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NotificationStyles</string>
+    <string name="toast">My name is: %1$s</string>
 </resources>

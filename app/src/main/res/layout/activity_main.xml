@@ -47,4 +47,11 @@
         android:onClick="showMediaStyle"
         android:text="MediaStyle"
         />
+    <Button
+        android:id="@+id/toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toast"
+        android:text="Toast"
+        />
 </LinearLayout>
