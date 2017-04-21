@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class ToastCenter {
 
     public static ToastCenter with (Context context) {
-        return new ToastCenter(context);
+        return new ToastCenter(context.getApplicationContext());
     }
 
     private Context mContext;

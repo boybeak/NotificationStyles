@@ -3,6 +3,7 @@ package com.nulldreams.notify.notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v7.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -199,6 +200,21 @@ public class NotificationCenter {
         return this;
     }
 
+    public NotificationCenter addAction (android.support.v4.app.NotificationCompat.Action action) {
+        mBuilder.addAction(action);
+        return this;
+    }
+
+    public NotificationCenter addAction (@DrawableRes int icon, CharSequence title, PendingIntent pi) {
+        mBuilder.addAction(icon, title, pi);
+        return this;
+    }
+
+    public NotificationCenter addAction (@DrawableRes int icon, @StringRes int titleRes, PendingIntent pi) {
+        mBuilder.addAction(icon, mContext.getText(titleRes), pi);
+        return this;
+    }
+
     /**
      * Supply custom RemoteViews to use instead of the platform template in the heads up dialog.
      * This will override the heads-up layout that would otherwise be constructed by this Builder object.
@@ -228,6 +244,10 @@ public class NotificationCenter {
 
     public BigText asBigTextStyle () {
         return asStyle(new BigText());
+    }
+
+    public Media asMediaStyle () {
+        return asStyle(new Media());
     }
 
     public <T extends CommonStyle> T asStyle (T t) {

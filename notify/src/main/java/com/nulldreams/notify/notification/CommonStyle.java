@@ -1,5 +1,6 @@
 package com.nulldreams.notify.notification;
 
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
 /**
@@ -12,6 +13,11 @@ public abstract class CommonStyle {
 
     public void setCenter (NotificationCenter center) {
         mCenter = center;
+    }
+
+    public CommonStyle addCompatExtras (Bundle extras) {
+        getStyle().addCompatExtras(extras);
+        return this;
     }
 
     public NotificationCenter getCenter () {

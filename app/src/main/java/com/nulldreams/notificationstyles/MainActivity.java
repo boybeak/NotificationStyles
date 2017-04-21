@@ -1,11 +1,15 @@
 package com.nulldreams.notificationstyles;
 
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.nulldreams.notify.notification.NotificationCenter;
@@ -88,10 +92,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showMediaStyle (View view) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        /*NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         NotificationCompat.MediaStyle mediaStyle = new NotificationCompat.MediaStyle(builder);
 
-        //mediaStyle.
         builder.setStyle(mediaStyle);
 
         builder.setSmallIcon(R.mipmap.ic_launcher);
@@ -99,7 +102,31 @@ public class MainActivity extends AppCompatActivity {
         builder.setContentText("Media ContentText");
         builder.setTicker("Media Ticker");
 
-        showNotificationCompat(builder);
+        showNotificationCompat(builder);*/
+
+        PendingIntent playPauseIt = getActionIntent(this, KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE);
+        PendingIntent previousIt = getActionIntent(this, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+        PendingIntent nextIt = getActionIntent(this, KeyEvent.KEYCODE_MEDIA_NEXT);
+
+        NotificationCenter.with(this)
+                .smallIcon(R.mipmap.ic_launcher)
+                .contentText("Imagine")
+                .contentTitle("John Lennon")
+                .ticker("Messaging Ticker")
+                .addAction(R.drawable.ic_skip_previous_white_24dp, R.string.previous, previousIt)
+                .addAction(R.drawable.ic_play_white_24dp, R.string.play, playPauseIt)
+                .addAction(R.drawable.ic_skip_next_white_24dp, R.string.next, nextIt)
+                .when(System.currentTimeMillis(), true)
+                .asMediaStyle()
+                .showActionsInCompactView(0, 1, 2)
+                .show(8);
+    }
+
+    public static PendingIntent getActionIntent (Context context, int mediaKeyEvent) {
+        Intent it = new Intent(Intent.ACTION_MEDIA_BUTTON);
+        it.setPackage(context.getPackageName());
+        it.putExtra(Intent.EXTRA_KEY_EVENT, new KeyEvent(KeyEvent.ACTION_UP, mediaKeyEvent));
+        return PendingIntent.getBroadcast(context, mediaKeyEvent, it, 0);
     }
 
     public void customStyle (View view) {
