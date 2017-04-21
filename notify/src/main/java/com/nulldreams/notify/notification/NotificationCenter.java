@@ -152,6 +152,11 @@ public class NotificationCenter {
         return this;
     }
 
+    public NotificationCenter sound (Uri uri) {
+        mBuilder.setSound(uri);
+        return this;
+    }
+
     public NotificationCenter sound (Uri uri, int streamType) {
         mBuilder.setSound(uri, streamType);
         return this;

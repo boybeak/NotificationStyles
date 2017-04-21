@@ -49,6 +49,7 @@ public class AsyncBigPicture extends BigPicture {
             @Override
             public void onLoadFailed(Exception e, Drawable errorDrawable) {
                 super.onLoadFailed(e, errorDrawable);
+                getCenter().show(id);
                 Log.v(TAG, "showWhenPictureReady onLoadFailed " + e.getMessage());
             }
         });
