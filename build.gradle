@@ -23,7 +23,7 @@ allprojects {
 ext {
     compileSdkVersion=25
     buildToolsVersion="25.0.2"
-    minSdkVersion=17
+    minSdkVersion=14
     targetSdkVersion=25
 
     supportLibVersion='25.3.1'
