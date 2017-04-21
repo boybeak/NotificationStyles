@@ -6,7 +6,7 @@ Now it's available on jcenter.
 With Gradle:
 
 ```groovy
-compile 'com.github.boybeak:notify:1.1.2'
+compile 'com.github.boybeak:notify:1.2.0'
 ```
 
 With Maven:
@@ -15,7 +15,7 @@ With Maven:
 <dependency>
   <groupId>com.github.boybeak</groupId>
   <artifactId>notify</artifactId>
-  <version>1.1.2</version>
+  <version>1.2.0</version>
   <type>pom</type>
 </dependency>
 ```
