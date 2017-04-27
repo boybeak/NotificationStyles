@@ -9,7 +9,7 @@ import android.os.Bundle;
  * Created by gaoyunfei on 2017/4/26.
  */
 
-public class PiIt {
+public class PendingIt {
 
     private NotificationCenter mCenter;
     private PendingIntent mPi;
@@ -17,21 +17,21 @@ public class PiIt {
     private int mReqCode, mFlags;
     private Bundle mOptions;
 
-    public PiIt (NotificationCenter center) {
+    public PendingIt(NotificationCenter center) {
         mCenter = center;
     }
 
-    public PiIt requestCode (int requestCode) {
+    public PendingIt requestCode (int requestCode) {
         mReqCode = requestCode;
         return this;
     }
 
-    public PiIt flags (int flags) {
+    public PendingIt flags (int flags) {
         mFlags = flags;
         return this;
     }
 
-    public PiIt options (Bundle options) {
+    public PendingIt options (Bundle options) {
         mOptions = options;
         return this;
     }
@@ -99,45 +99,4 @@ public class PiIt {
         mCenter.deleteIntent(mPi);
         return mCenter;
     }
-
-    /*public NotificationCenter activitiesContent () {
-        mPi = PendingIntent.getActivities(mCenter.getContext(), mReqCode, )
-    }*/
-
-    /*public Messaging asMessagingStyle (CharSequence userDisplayName) {
-        return asStyle(new Messaging(userDisplayName));
-    }
-
-    public Messaging asMessagingStyle (@StringRes int userDisplayName) {
-        return asStyle(new Messaging(userDisplayName));
-    }
-
-    public Inbox asInboxStyle () {
-        return asStyle(new Inbox());
-    }
-
-    public BigPicture asBigPictureStyle () {
-        return asStyle(new BigPicture());
-    }
-
-    public BigText asBigTextStyle () {
-        return asStyle(new BigText());
-    }
-
-    public Media asMediaStyle () {
-        return asStyle(new Media());
-    }
-
-    public <T extends CommonStyle> T asStyle (T t) {
-        t.setCenter(mCenter);
-        return t;
-    }
-
-    public void show (int id) {
-        mCenter.show(id);
-    }
-
-    public void show (String tag, int id) {
-        mCenter.show(tag, id);
-    }*/
 }

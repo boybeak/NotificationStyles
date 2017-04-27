@@ -91,8 +91,8 @@ public class NotificationCenter {
         return this;
     }
 
-    public PiIt withPendingIntent () {
-        return new PiIt(this);
+    public PendingIt withPendingIntent () {
+        return new PendingIt(this);
     }
 
     public NotificationCenter deleteIntent (PendingIntent deleteIntent) {

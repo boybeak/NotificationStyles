@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".DeleteReceiver">
+            <intent-filter >
+                <action android:name="com.nulldreams.notificationstyles.DELETE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

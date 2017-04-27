@@ -6,7 +6,7 @@ Now it's available on jcenter.
 With Gradle:
 
 ```groovy
-compile 'com.github.boybeak:notify:1.2.0'
+compile 'com.github.boybeak:notify:1.3.0'
 ```
 
 With Maven:
@@ -15,7 +15,7 @@ With Maven:
 <dependency>
   <groupId>com.github.boybeak</groupId>
   <artifactId>notify</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -31,6 +31,14 @@ NotificationCenter.with(this)
                 .contentTitle("Messaging ContentTitle")
                 .ticker("Messaging Ticker")
                 .when(System.currentTimeMillis(), true)
+                .withPendingIntent()
+                .flags(PendingIntent.FLAG_CANCEL_CURRENT)
+                .requestCode(100)
+                .activityContent(new Intent(this, MainActivity.class))
+                .withPendingIntent()
+                .flags(0)
+                .requestCode(200)
+                .broadcastDelete(new Intent("com.nulldreams.notificationstyles.DELETE"))
                 .asBigPictureStyle()
                 .bigContentTitle("InboxStyle bigContentTitle")
                 .summaryText("InboxStyle summaryText")
