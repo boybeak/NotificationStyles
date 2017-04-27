@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 .contentTitle("Messaging ContentTitle")
                 .ticker("Messaging Ticker")
                 .when(System.currentTimeMillis(), true)
+                .contentIntent()
+                .activityContent()
                 .asBigTextStyle()
                 .bigContentTitle(BigTextData.BIG_TEXT_TITLE)
                 .summaryText(BigTextData.BIG_TEXT_SUMMARY)

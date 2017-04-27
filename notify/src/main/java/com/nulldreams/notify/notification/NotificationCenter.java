@@ -91,6 +91,10 @@ public class NotificationCenter {
         return this;
     }
 
+    public PiIt withPendingIntent () {
+        return new PiIt(this);
+    }
+
     public NotificationCenter deleteIntent (PendingIntent deleteIntent) {
         mBuilder.setDeleteIntent(deleteIntent);
         return this;
