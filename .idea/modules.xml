@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NotificationStyles.iml" filepath="$PROJECT_DIR$/NotificationStyles.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/notify/notify.iml" filepath="$PROJECT_DIR$/notify/notify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/NotificationStyles.iml" filepath="$PROJECT_DIR$/.idea/modules/NotificationStyles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NotificationStyles.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NotificationStyles.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/notify/NotificationStyles.notify.iml" filepath="$PROJECT_DIR$/.idea/modules/notify/NotificationStyles.notify.iml" />
     </modules>
   </component>
 </project>
